@@ -1,0 +1,8 @@
+* {
+    box-sizing: border-box;
+}
+
+.books-section {
+    min-width: 80vw;
+    max-width: 97vw;
+}
