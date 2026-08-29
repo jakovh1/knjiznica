@@ -1,4 +1,5 @@
 from pony import orm
+from datetime import date
 
 DB = orm.Database()
 
@@ -21,8 +22,10 @@ class Knjiga(DB.Entity):
 class Posudba(DB.Entity):
   id = orm.PrimaryKey(int, auto=True)
   knjiga = orm.Required(Knjiga)
-  rok_povrata = orm.Required(str)
-  datum_povrata = orm.Optional(str)
+  datum_posudbe = orm.Required(date)
+  rok_povrata = orm.Required(date)
+  datum_povrata = orm.Optional(date)
+  broj_produljenja = orm.Required(int, default=0)
 
-DB.bind(provider="sqlite", filename="knjiznica.db", create_db=True)
+DB.bind(provider="sqlite", filename="knjiznica.sqlite", create_db=True)
 DB.generate_mapping(create_tables=True)

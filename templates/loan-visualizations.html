@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Vizualizacije
+{% endblock %}
+
+{% block content %}
+    <section class="loan-visualizations">
+        <select id="chartSelect">
+            <option value="loans_by_author">Posudbe po autoru</option>
+            <option value="loans_by_book">Posudbe po knjizi</option>
+            <option value="renewals_by_author">Produljenja po autoru</option>
+        </select>
+        <h2 id="chartTitle"></h2>
+        <canvas id="myChart"></canvas>
+    </section>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js/dist/Chart.min.css"></link>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        window.chartData = {{ chart_data | tojson }};
+    </script>
+    <script src="{{ url_for('static', filename='js/loan-visualizations.js') }}"></script>
+{% endblock %}

@@ -1,32 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Knjižnica</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <section class="books-section">
-        <h1>Knjižnica</h1>
 
         <div class="books-grid">
             {% for knjiga in knjige %}
-                <article class="book-card">
-                    <img
-                      src="{{ url_for('static', filename=knjiga.naslovna_slika_path) }}"
-                      alt="Naslovnica knjige {{ knjiga.naslov }}"
-                    >
+                <a class="book-link" href="{{ url_for('show_book', book_id=knjiga.id) }}">
+                    <article class="book-card">
+                        <img
+                          src="{{ url_for('static', filename='images/books/'+knjiga.naslovna_slika_path) }}"
+                          alt="Naslovnica knjige {{ knjiga.naslov }}"
+                        >
 
-                    <h2>{{ knjiga.naslov }}</h2>
-                    <p>{{ knjiga.autor }}</p>
-                    <p>{{ knjiga.zanr }}</p>
+                        <h2>{{ knjiga.naslov }}</h2>
+                        <p>{{ knjiga.autor }}</p>
+                        <p>{{ knjiga.zanr }}</p>
 
-                </article>
+                    </article>
+                </a>
             {% endfor %}
         </div>
 
 
     </section>
 
-</body>
-</html>
+{% endblock %}

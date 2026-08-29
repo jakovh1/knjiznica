@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% from "./macros/icons.html" import icon %}
+{% from "./macros/book_action.html" import book_action %}
+
+{% block title %}
+  {{ book.naslov }} | Knjižnica
+{% endblock %}
+
+{% block content %}
+  <section class="book-show">
+    <img
+      src="{{ url_for('static', filename='images/books/'+book.naslovna_slika_path) }}"
+      alt="Naslovnica knjige {{ book.naslov }}"
+    >
+
+    <div class="book-show__content">
+        <h1>{{ book.naslov }}</h1>
+        <p>{{ book.autor }}</p>
+        <p>{{ book.opis }}</p>
+        <div class="icon-attributes">
+            <div class="attribute-container">
+                <div>
+                    {{ icon('calendar', 'icon') }}
+                </div>
+                <div class="text-content">
+                    <span>GODINA PRVOG IZDANJA</span>
+                    <br/>
+                    {{ book.godina_izdanja }}
+                </div>
+            </div>
+            <div class="attribute-container">
+                <div>
+                    {{ icon('country', 'icon') }}
+                </div>
+                <div class="text-content">
+                    <span>ZEMLJA IZDANJA</span>
+                    <br/>
+                    {{ book.zemlja }}
+                </div>
+            </div>
+
+            <div class="attribute-container">
+                <div>
+                    {{ icon('pages', 'icon') }}
+                </div>
+                <div class="text-content">
+                    <span>BROJ STRANICA</span>
+                    <br/>
+                    {{ book.broj_stranica }}
+                </div>
+            </div>
+        </div>
+
+        {{ book_action(book, loan) }}
+
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,25 @@
+{
+  "name": "knjiznica",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass static/scss/style.scss static/css/style.css",
+    "sass:watch": "sass --watch static/scss/style.scss:static/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakovh1/knjiznica.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jakovh1/knjiznica/issues"
+  },
+  "homepage": "https://github.com/jakovh1/knjiznica#readme",
+  "devDependencies": {
+    "sass": "^1.102.0"
+  }
+}

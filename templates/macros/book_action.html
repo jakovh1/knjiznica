@@ -1,0 +1,27 @@
+{# templates/macros/book_actions.html #}
+
+{%  macro book_action(book, loan) %}
+    {% if loan %}
+        <p>Posudba vrijedi do {{ loan.rok_povrata.strftime("%d.%m.%Y.") }}</p>
+        <form method="POST" action="{{ url_for('renew_loan', loan_id=loan.id) }}">
+            <button type="submit" class="button button--secondary">
+                Produži posudbu
+            </button>
+        </form>
+
+        <form method="POST" action="{{ url_for('return_loan', loan_id=loan.id) }}">
+            <button type="submit" class="button button--danger">
+                Vrati knjigu
+            </button>
+        </form>
+
+    {% elif book.kolicina_dostupno > 0 %}
+        <form method="POST" action="{{ url_for('create_checkout', book_id=book.id) }}">
+            <button type="submit" class="button button--primary">
+                Posudi knjigu
+            </button>
+        </form>
+    {% else %}
+        <p>Knjiga trenutno nije dostupna.</p>
+    {% endif %}
+{% endmacro %}
