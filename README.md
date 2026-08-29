@@ -2,8 +2,6 @@
 
 **Knjižnica** je jednostavna aplikacija za upravljanje posudbama knjiga, izrađena u Flasku kao dio fakultetskog projekta.
 
-Projekt prikazuje osnovni full-stack razvoj web aplikacije, server-renderane stranice, modeliranje baze podataka, rad s posudbama knjiga i jednostavne vizualizacije podataka.
-
 ## ⚙️ Funkcionalnosti
 
 - **Katalog knjiga**  
